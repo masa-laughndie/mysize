@@ -19,16 +19,19 @@ services:
     networks:
       mysize-network:
 
-  app:
-    container_name: mysize-app
-    build: .
-    command: bash -c "/mysize/entrypoint.sh"
+  backend:
+    container_name: mysize-backend
+    build:
+      context: .
+      dockerfile: Dockerfile_backend
+    command: /bin/sh -c "/mysize/entrypoint.sh"
     ports:
       - 3012:3012
     working_dir: /mysize
     volumes:
       - .:/mysize:cached
       - volume-mysize-gems:/usr/local/bundle:cached
+      - volume-mysize-node_modules:/mysize/frontend/node_modules:cached
     environment:
       BUNDLER_VERSION: 2.1.4
       TZ: Asia/Tokyo
@@ -54,3 +57,4 @@ networks:
 volumes:
   mysize-mysql-data:
   volume-mysize-gems:
+  volume-mysize-node_modules:

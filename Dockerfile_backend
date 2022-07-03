@@ -35,4 +35,6 @@ COPY ./ .
 RUN set -x \
 && chmod o+x ./entrypoint.sh
 
+EXPOSE 3012
+
 CMD ["/bin/bash", "-c", "./entrypoint.sh"]

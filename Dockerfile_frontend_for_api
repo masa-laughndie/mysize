@@ -1,0 +1,12 @@
+# syntax=docker/dockerfile:1
+FROM node:16-alpine
+
+WORKDIR /frontend_for_api
+COPY ./frontend_for_api/package.json ./frontend_for_api/yarn.lock .
+RUN yarn install
+
+COPY ./frontend_for_api .
+
+EXPOSE 3013
+
+CMD yarn start

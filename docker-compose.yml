@@ -47,6 +47,23 @@ services:
       mysize-network:
     depends_on:
       - mysql80
+  frontend-for-api:
+    container_name: mysize-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile_frontend_for_api
+    command: /bin/sh -c "yarn start"
+    ports:
+      - 3013:3013
+    volumes:
+      - ./frontend_for_api:/frontend_for_api:cached
+    environment:
+      PORT: 3013
+      REACT_APP_BACKEND_API_URL: http://localhost:3012
+    stdin_open: true
+    tty: true
+    networks:
+      mysize-network:
 
 networks:
   mysize-network:

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180401110917) do
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.bigint "user_id"
     t.bigint "kickspost_id"
     t.bigint "reply_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180401110917) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.string "name"
     t.string "email"
     t.text "message"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180401110917) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "goods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "goods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.integer "gooder_id"
     t.integer "gooded_id"
     t.string "post_type"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180401110917) do
     t.index ["post_type", "post_id"], name: "index_goods_on_post_type_and_post_id"
   end
 
-  create_table "kicksposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "kicksposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.bigint "user_id"
     t.string "title"
     t.text "content"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180401110917) do
     t.index ["user_id"], name: "index_kicksposts_on_user_id"
   end
 
-  create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.bigint "user_id"
     t.string "kind_type"
     t.bigint "kind_id"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20180401110917) do
     t.index ["user_id"], name: "index_notices_on_user_id"
   end
 
-  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20180401110917) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
     t.string "name"
     t.string "email"
     t.string "mysize_id"

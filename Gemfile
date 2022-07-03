@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "~> 2.5.0"
+
 gem "rails",                    "5.1.4"
 gem "bcrypt",               "~> 3.1.11"
 gem "faker",                    "1.7.3"
@@ -20,7 +22,7 @@ gem "omniauth",              "~> 1.8.1"
 gem "omniauth-twitter",      "~> 1.4.0"
 gem "dotenv-rails",          "~> 2.2.1"
 gem "gon",                   "~> 6.2.0"
-gem "mysql2",                "~> 0.4.10"
+gem "mysql2",                "~> 0.4.0"
 gem "yaml_db"
 gem "hypernova"
 

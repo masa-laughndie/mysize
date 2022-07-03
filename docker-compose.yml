@@ -1,0 +1,56 @@
+version: "3.7"
+
+services:
+  mysql80:
+    container_name: mysize-mysql80
+    platform: linux/x86_64
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3312:3306
+    volumes:
+      - mysize-mysql-data:/var/lib/mysql
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: mysize_dev
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      mysize-network:
+
+  app:
+    container_name: mysize-app
+    build: .
+    command: bash -c "/mysize/entrypoint.sh"
+    ports:
+      - 3012:3012
+    working_dir: /mysize
+    volumes:
+      - .:/mysize:cached
+      - volume-mysize-gems:/usr/local/bundle:cached
+    environment:
+      BUNDLER_VERSION: 2.1.4
+      TZ: Asia/Tokyo
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: rootpw
+      DATABASE_HOST: mysize-mysql80
+      DATABASE_PORT: 3306
+      RAILS_ROOT: /mysize
+    tty: true
+    stdin_open: true
+    networks:
+      mysize-network:
+    depends_on:
+      - mysql80
+
+networks:
+  mysize-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.2/24
+
+volumes:
+  mysize-mysql-data:
+  volume-mysize-gems:

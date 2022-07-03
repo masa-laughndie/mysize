@@ -42,3 +42,6 @@
 /config/sprockets-manifest.json
 
 /vendor/bundle
+
+.ruby-version
+.rbenv-gemsets

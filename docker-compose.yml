@@ -39,6 +39,7 @@ services:
       DATABASE_PASSWORD: rootpw
       DATABASE_HOST: mysize-mysql80
       DATABASE_PORT: 3306
+      FRONTEND_ORIGIN: http://localhost:3013
       RAILS_ROOT: /mysize
     tty: true
     stdin_open: true

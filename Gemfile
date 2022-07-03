@@ -25,6 +25,7 @@ gem "gon",                   "~> 6.2.0"
 gem "mysql2",                "~> 0.4.0"
 gem "yaml_db"
 gem "hypernova"
+gem "rack-cors"
 
 group :development, :test do
   gem "pry-rails",           "~> 0.3.6"

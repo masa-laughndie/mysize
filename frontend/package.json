@@ -59,7 +59,7 @@
     "webpack-sprockets-rails-manifest-plugin": "^0.0.4"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.2",
     "classnames": "^2.2.6",
     "hypernova": "^2.4.0",
     "hypernova-react": "^2.1.0",
